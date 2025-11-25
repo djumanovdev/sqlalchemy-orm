@@ -42,4 +42,21 @@ def search_students_by_name(name: str) -> list[Student]:
     
     return students
 
+def update_student(
+    student_id: int | None = None,
+    first_name: str | None = None, 
+    last_name: str | None = None, 
+    birthdate: datetime | None = None, 
+    bio: str | None = None
+):
+    student = get_one_student(student_id)
 
+    if student:
+        with get_db() as session:
+            student.first_name = first_name if first_name else student.first_name
+            student.last_name = last_name if last_name else student.last_name
+            student.birthdate = birthdate if birthdate else student.birthdate
+            student.bio = bio if bio else student.bio
+
+            session.add(student)
+            session.commit()

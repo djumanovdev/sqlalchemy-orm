@@ -6,6 +6,7 @@ from school.crud import (
     get_one_student,
     search_students_by_first_name,
     search_students_by_name,
+    update_student
 )
 
 init_db()
@@ -16,13 +17,13 @@ init_db()
 # students = get_students()
 # print(students)
 
-
-# s = get_one_student(3)
-# print(s)
-
+# s = get_one_student(1)
+# print(s.bio)
 
 # sts = search_students_by_first_name('ali')
 # print(sts)
 
-sts = search_students_by_name('vali')
-print(sts)
+# sts = search_students_by_name('vali')
+# print(sts)
+
+# update_student(1, last_name='nimadir')
